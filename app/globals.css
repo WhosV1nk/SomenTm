@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ===== GLOW BUTTON ===== */
+.glow-btn {
+  position: relative;
+  padding: 14px 36px;
+  border-radius: 14px;
+  background: #0b0b0b;
+  color: #9ca3af;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  border: 1px solid #1f1f1f;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.glow-btn::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    120px circle at var(--x) var(--y),
+    rgba(255, 60, 60, 0.35),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    80px circle at var(--x) var(--y),
+    rgba(255, 80, 80, 0.9),
+    transparent 65%
+  );
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glow-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 80, 80, 0.6);
+}
+
+.glow-btn:hover::before,
+.glow-btn:hover::after {
+  opacity: 1;
+}
+
+/* ===== Particle cinematic background polish ===== */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -5;
+
+  /* Subtle vignette + red glow */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 45, 45, 0.08) 0%,
+    rgba(0, 0, 0, 0.85) 70%
+  );
+}
+
+/* Smooth transitions when blur toggles */
+* {
+  transition-property: backdrop-filter, filter, opacity;
+}
