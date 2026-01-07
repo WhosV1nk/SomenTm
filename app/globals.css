@@ -2,8 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===== Base Reset ===== */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 
-/* ===== GLOW BUTTON ===== */
+/* ===== Cinematic vignette (FIXED VERSION) ===== */
+html::before {
+  content: "";
+  position: absolute; /* ✅ NOT fixed */
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 45, 45, 0.08),
+    rgba(0, 0, 0, 0.85) 70%
+  );
+}
+
+/* ===== Particles Layer ===== */
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none; /* 🔥 critical */
+}
+
+.particles-blurred {
+  filter: blur(6px);
+  opacity: 0.6;
+}
+
+/* ===== Glow Button ===== */
 .glow-btn {
   position: relative;
   padding: 14px 36px;
@@ -55,26 +98,4 @@
 .glow-btn:hover::before,
 .glow-btn:hover::after {
   opacity: 1;
-}
-
-/* ===== Particle cinematic background polish ===== */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -5;
-
-  /* Subtle vignette + red glow */
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 45, 45, 0.08) 0%,
-    rgba(0, 0, 0, 0.85) 70%
-  );
-}
-
-/* Smooth transitions when blur toggles */
-* {
-  transition-property: backdrop-filter, filter, opacity;
 }
