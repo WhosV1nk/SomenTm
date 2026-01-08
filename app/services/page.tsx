@@ -1,4 +1,10 @@
 "use client";
+export const metadata = {
+  title: "Car Services | SomenTm Doorstep Auto Care",
+  description:
+    "Professional doorstep car services by SomenTm including diagnostics, repairs, maintenance, and on-road assistance.",
+};
+
 
 import { motion } from "framer-motion";
 import Link from "next/link";

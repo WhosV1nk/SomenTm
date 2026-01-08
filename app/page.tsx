@@ -1,4 +1,9 @@
 "use client";
+export const metadata = {
+  title: "SomenTm | 24/7 Doorstep Car Service & Emergency Assistance",
+  description:
+    "SomenTm provides 24/7 doorstep car services and emergency roadside assistance across India. Fast, reliable, and professional help anytime.",
+};
 
 import { motion } from "framer-motion";
 import Link from "next/link";

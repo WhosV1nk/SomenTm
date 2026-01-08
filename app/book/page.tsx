@@ -1,4 +1,10 @@
 "use client";
+export const metadata = {
+  title: "Book Car Assistance | SomenTm Emergency & Normal Service",
+  description:
+    "Book emergency roadside assistance or scheduled car services instantly with SomenTm. Available 24/7.",
+};
+
 
 import { useState } from "react";
 import { motion } from "framer-motion";

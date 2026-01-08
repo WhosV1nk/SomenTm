@@ -1,4 +1,10 @@
 "use client";
+export const metadata = {
+  title: "About SomenTm | Smart Car Care Platform",
+  description:
+    "Learn about SomenTm, our mission to revolutionize car care with smart technology and instant roadside assistance.",
+};
+
 
 import { motion } from "framer-motion";
 import Link from "next/link";
